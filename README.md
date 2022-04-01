@@ -10,4 +10,4 @@ This program is used to set the private playing(Rich Presence) status on the Dis
 #### Adding itself to startup programs (Starts in the background)
 
 # Usage
-[Youtube](https://google.com)
+[Youtube](https://www.youtube.com/watch?v=C2gz-8LxPQI)
