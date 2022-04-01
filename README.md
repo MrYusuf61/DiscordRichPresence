@@ -9,3 +9,5 @@ This program is used to set the private playing(Rich Presence) status on the Dis
 #### Custom cooldown for each loop element
 #### Adding itself to startup programs (Starts as invisible)
 
+# Usage
+[Youtube](https://google.com)
