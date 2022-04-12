@@ -46,5 +46,11 @@ namespace DRP.Properties {
                 this["ChangingPresences"] = value;
             }
         }
+
+        public new void Save()
+        {
+            if (!System.Diagnostics.Debugger.IsAttached)
+                base.Save();    
+        }
     }
 }

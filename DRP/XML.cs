@@ -73,6 +73,7 @@ namespace DRP
                     var tempItem = settings.items[i];
 
                     var tempAssets = new Assets();
+                    var tempButtons = new List<DiscordRPC.Button>();
 
                     if (string.IsNullOrEmpty(tempItem.AssetLargeImageKey) &&
                         string.IsNullOrEmpty(tempItem.AssetLargeImageText) &&
@@ -88,11 +89,20 @@ namespace DRP
                             SmallImageText = tempItem.AssetSmallImageText
                         };
 
+                    if (!string.IsNullOrEmpty(tempItem.Button1Label) &&
+                        !string.IsNullOrEmpty(tempItem.Button1Url))
+                        tempButtons.Add(new DiscordRPC.Button() { Label = tempItem.Button1Label, Url = tempItem.Button1Url });
+
+                    if (!string.IsNullOrEmpty(tempItem.Button2Label) &&
+                        !string.IsNullOrEmpty(tempItem.Button2Url))
+                        tempButtons.Add(new DiscordRPC.Button() { Label = tempItem.Button2Label, Url = tempItem.Button2Url });
+
                     var tempPresence = new RichPresence()
                     {
                         Details = tempItem.Details,
                         State = tempItem.State,
-                        Assets = tempAssets
+                        Assets = tempAssets,
+                        Buttons = tempButtons.ToArray()
                     };
 
                     return (i, tempPresence, tempItem, tempItem.Checked, tempItem.Timeout);
@@ -243,5 +253,21 @@ namespace DRP
 
         [XmlAttribute("AssetLargeImageText")]
         public string AssetLargeImageText { get; set; }
+
+
+        [XmlAttribute("Button1Label")]
+        public string Button1Label { get; set; }
+
+
+        [XmlAttribute("Button2Label")]
+        public string Button2Label { get; set; }
+
+
+        [XmlAttribute("Button1Url")]
+        public string Button1Url { get; set; }
+
+
+        [XmlAttribute("Button2Url")]
+        public string Button2Url { get; set; }
     }
 }

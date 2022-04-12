@@ -46,6 +46,10 @@ namespace DRP
                 txtLargeImageText.Text = currentItem.AssetLargeImageText;
                 txtSmallImageKey.Text = currentItem.AssetSmallImageKey;
                 txtSmallImageText.Text = currentItem.AssetSmallImageText;
+                txtButton1Url.Text = currentItem.Button1Url;
+                txtButton1Label.Text = currentItem.Button1Label;
+                txtButton2Url.Text = currentItem.Button2Url;
+                txtButton2Label.Text = currentItem.Button2Label;
                 txtTimeout.Value = currentItem.Timeout / 1000;
                 this.Tag = ExitOk;
             }
@@ -93,6 +97,9 @@ namespace DRP
                 else if (!XML.Add(currentItem))
                     MessageBox.Show($"There is a \"Presence\" named \"{txtName.Text}\"", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else this.Tag = ExitOk;
+
+                if (this.Tag == (object)ExitOk)
+                    this.Close();
             }
         }
 
@@ -101,7 +108,7 @@ namespace DRP
             this.Close();
         }
 
-        private void txtName_TextChanged(object sender, EventArgs e)
+        private void txts_TextChanged(object sender, EventArgs e)
         {
             if (sender is TextBox txt)
             {
@@ -133,6 +140,22 @@ namespace DRP
                 {
                     currentItem.AssetSmallImageText = txt.Text;
                 }
+                else if (txt.Name == txtButton1Label.Name)
+                {
+                    currentItem.Button1Label = txt.Text;
+                }
+                else if (txt.Name == txtButton2Label.Name)
+                {
+                    currentItem.Button2Label = txt.Text;
+                }
+                else if (txt.Name == txtButton1Url.Name)
+                {
+                    currentItem.Button1Url = txt.Text;
+                }
+                else if (txt.Name == txtButton2Url.Name)
+                {
+                    currentItem.Button2Url = txt.Text;
+                }
                 this.Tag = null;
             }
         }
@@ -142,6 +165,11 @@ namespace DRP
             if (txtTimeout.Value > 0 && txtTimeout.Value < 1001)
                 currentItem.Timeout = (int)txtTimeout.Value * 1000;
             this.Tag = null;
+        }
+
+        private void infoLabel3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("It may take a while for the buttons to appear and buttons don't work for you", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
