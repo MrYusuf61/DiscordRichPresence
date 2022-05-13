@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 
 namespace DRP
 {
@@ -70,7 +67,7 @@ namespace DRP
                 var fileName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DRP.cmd";
                 if (File.Exists(fileName)) File.Delete(fileName);
                 // shortcut :)
-                File.WriteAllText(fileName, "cd " + Application.StartupPath + "\nstart DRP.exe --noshow");
+                File.WriteAllText(fileName, "cd " + Application.StartupPath + "\nstart " + Process.GetCurrentProcess().MainModule.FileName.Split('\\').Last() + " --noshow");
             }
             catch (Exception ex)
             {

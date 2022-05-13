@@ -51,6 +51,8 @@ namespace DRP.Properties {
         {
             if (!System.Diagnostics.Debugger.IsAttached)
                 base.Save();    
+            if(System.Diagnostics.Debugger.IsAttached)
+                base.Reset();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace DRP
             DiscordRPC_Controller.PresenceChanged += DiscordRPC_Controller_PresenceChanged;
             DiscordRPC_Controller.ActiveChanged += DiscordRPC_Controller_ActiveChanged;
             DiscordRPC_Controller.Start();
-            
+
         }
 
         private void DiscordRPC_Controller_ActiveChanged(object sender, EventArgs e)
@@ -197,6 +197,25 @@ namespace DRP
                 this.Close();
                 firstShow = true;
             }
+        }
+
+        private void btnTime_Click(object sender, EventArgs e)
+        {
+            var time = FrmSelectTime.Show();
+            if (time != null)
+                if (time.Start != null && time.Start.Value == DateTime.MinValue)
+                {
+                    XML.SetTime(time, true);
+                }
+                else
+                {
+                    XML.SetTime(time);
+                }
+        }
+
+        private void btnClearTime_Click(object sender, EventArgs e)
+        {
+            XML.SetTime(null);
         }
     }
 }

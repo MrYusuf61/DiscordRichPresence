@@ -46,6 +46,8 @@ namespace DRP
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.infoLabel1 = new DRP.InfoLabel();
+            this.btnTime = new System.Windows.Forms.Button();
+            this.btnClearTime = new System.Windows.Forms.Button();
             this.menuIcoContext.SuspendLayout();
             this.groupBoxPresences.SuspendLayout();
             this.SuspendLayout();
@@ -202,11 +204,35 @@ namespace DRP
             this.infoLabel1.TabIndex = 11;
             this.infoLabel1.Click += new System.EventHandler(this.infoLabel1_Click);
             // 
+            // btnTime
+            // 
+            this.btnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTime.Location = new System.Drawing.Point(258, 89);
+            this.btnTime.Name = "btnTime";
+            this.btnTime.Size = new System.Drawing.Size(75, 39);
+            this.btnTime.TabIndex = 12;
+            this.btnTime.Text = "Presence Time";
+            this.btnTime.UseVisualStyleBackColor = true;
+            this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
+            // 
+            // btnClearTime
+            // 
+            this.btnClearTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearTime.Location = new System.Drawing.Point(258, 134);
+            this.btnClearTime.Name = "btnClearTime";
+            this.btnClearTime.Size = new System.Drawing.Size(75, 23);
+            this.btnClearTime.TabIndex = 13;
+            this.btnClearTime.Text = "Clear Time";
+            this.btnClearTime.UseVisualStyleBackColor = true;
+            this.btnClearTime.Click += new System.EventHandler(this.btnClearTime_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 351);
+            this.Controls.Add(this.btnClearTime);
+            this.Controls.Add(this.btnTime);
             this.Controls.Add(this.infoLabel1);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.btnEdit);
@@ -220,6 +246,7 @@ namespace DRP
             this.MaximumSize = new System.Drawing.Size(360, 700);
             this.MinimumSize = new System.Drawing.Size(360, 390);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Custom Discord Rich Presence";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -248,5 +275,7 @@ namespace DRP
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnStartStop;
         private InfoLabel infoLabel1;
+        private System.Windows.Forms.Button btnTime;
+        private System.Windows.Forms.Button btnClearTime;
     }
 }
